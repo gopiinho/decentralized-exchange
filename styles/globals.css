@@ -4,17 +4,10 @@
 
 @layer base {
   body {
-    @apply bg-[#2A2B2E] text-white tracking-wide;
+    @apply bg-[#4a405e] text-white tracking-wide;
   }
 
   h1 {
-    @apply text-4xl sm:text-5xl md:text-6xl;
-  }
-
-  @media (max-width: 768px) {
-    .mobile-center {
-      grid-template-columns: 1fr;
-      justify-items: center;
-    }
+    @apply text-3xl sm:text-5xl md:text-6xl;
   }
 }
