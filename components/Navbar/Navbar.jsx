@@ -13,33 +13,55 @@ const Navbar = () => {
 
   return (
     <div className=" fixed w-full z-[100]">
-      <div className="flex justify-left items-center w-full p-4 justify-between">
-        <div className="md:flex gap-4">
+      <div className="flex justify-between items-center w-full p-5">
+        <div className="md:flex flex-row">
           <div>
             <Image
               src={images.logo}
               alt="logo"
               width={50}
               height={50}
-              className="mr-12"
+              className="mx-8 pb-1"
             />
           </div>
-          <p className="mr-10 pt-2">Swap</p>
-          <p className="mr-10 pt-2">Tokens</p>
-          <p className="mr-10 pt-2">Pools</p>
+          <div className="flex jusify-between mx-5 items-center ">
+            <Link href="/">
+              <p className="px-4 hover:text-[#5bccf6] transform duration-200">
+                Swap
+              </p>
+            </Link>
+            <Link href="/d">
+              <p className="px-4 hover:text-[#5bccf6] transform duration-200">
+                Tokens
+              </p>
+            </Link>
+            <Link href="/" className="neonH2">
+              <p className="px-4 hover:text-[#5bccf6] transform duration-200">
+                Pools
+              </p>
+            </Link>
+          </div>
         </div>
 
-        <div className="bg-[#1e1e1e] m-auto">
+        <div className="bg-[#56ccf6] mr-8">
           <input
             type="text"
             placeholder="Search Tokens"
-            className="bg-transparent border-2 border-slate-600  "
+            className="bg-transparent border-2 border-slate-600 px-10 py-2 placeholder:text-[#030e12] placeholder:text-center "
           />
         </div>
 
-        <div className="flex justify-between items-center gap-8">
-          <h2 className="mx-8">Network</h2>
-          <h2 className="mx-8">Connect</h2>
+        <div className="flex justify-between items-center gap-8 ">
+          <h2 className="px-10 py-2 border-2 border-slate-600 bg-[#5bccf6]">
+            Network
+          </h2>
+          <button
+            onClick={() => {}}
+            className="bg-[#56ccf6]   py-2 px-10 border-2 border-slate-600 cursor-pointer"
+          >
+            {" "}
+            Connect{" "}
+          </button>
           {openModel && (
             <Model setOpenModel={setOpenTokenBox} connectWallet="Connect" />
           )}
