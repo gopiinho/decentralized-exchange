@@ -56,12 +56,12 @@ const Navbar = () => {
               Network
             </h2>
             <button
-              onClick={() => {}}
+              onClick={() => setOpenModel(true)}
               className="bg-[#56ccf6]   py-2 px-10 border-2 border-slate-600 cursor-pointer hover:bg-[#8dcfe8] transform duration-300 "
             >
               Connect
             </button>
-            {!openModel && (
+            {openModel && (
               <Model setOpenModel={setOpenModel} connectWallet="Connect" />
             )}
           </div>
