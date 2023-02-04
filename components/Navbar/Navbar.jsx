@@ -8,7 +8,7 @@ import { Model, TokenList } from "../index"
 import images from "../../assets"
 
 const Navbar = () => {
-  const [openModel, setopenModel] = useState(false)
+  const [openModel, setOpenModel] = useState(false)
   const [openTokenBox, setOpenTokenBox] = useState(false)
 
   return (
@@ -35,7 +35,7 @@ const Navbar = () => {
                 Tokens
               </p>
             </Link>
-            <Link href="/" className="neonH2">
+            <Link href="/">
               <p className="px-4 hover:text-[#5bccf6] transform duration-200">
                 Pools
               </p>
@@ -47,24 +47,24 @@ const Navbar = () => {
           <input
             type="text"
             placeholder="Search Tokens"
-            className="bg-transparent border-2 border-slate-600 px-10 py-2 placeholder:text-[#030e12] placeholder:text-center "
+            className="bg-transparent border-2 border-slate-600 px-10 py-2 placeholder:text-slate-500 placeholder:text-center "
           />
         </div>
-
-        <div className="flex justify-between items-center gap-8 ">
-          <h2 className="px-10 py-2 border-2 border-slate-600 bg-[#5bccf6]">
-            Network
-          </h2>
-          <button
-            onClick={() => {}}
-            className="bg-[#56ccf6]   py-2 px-10 border-2 border-slate-600 cursor-pointer"
-          >
-            {" "}
-            Connect{" "}
-          </button>
-          {openModel && (
-            <Model setOpenModel={setOpenTokenBox} connectWallet="Connect" />
-          )}
+        <div>
+          <div className="flex justify-between items-center gap-8 ">
+            <h2 className="px-10 py-2 border-2 border-slate-600 bg-[#5bccf6]">
+              Network
+            </h2>
+            <button
+              onClick={() => {}}
+              className="bg-[#56ccf6]   py-2 px-10 border-2 border-slate-600 cursor-pointer hover:bg-[#8dcfe8] transform duration-300 "
+            >
+              Connect
+            </button>
+            {!openModel && (
+              <Model setOpenModel={setOpenModel} connectWallet="Connect" />
+            )}
+          </div>
         </div>
       </div>
 

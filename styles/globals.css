@@ -10,4 +10,8 @@
   h1 {
     @apply text-3xl sm:text-5xl md:text-6xl;
   }
+
+  .walletOptions p {
+    background-color: #5bccf6;
+  }
 }
