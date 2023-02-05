@@ -15,7 +15,7 @@ const Model = ({ setOpenModel, connectWallet }) => {
           <AiOutlineClose
             size={25}
             onClick={() => setOpenModel(false)}
-            className="cursor-pointer"
+            className="cursor-pointer hover:text-[#5bccf6] transform duration-200"
           />
         </div>
         <div className={Style.wallet}>
