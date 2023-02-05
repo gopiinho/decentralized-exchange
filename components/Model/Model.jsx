@@ -23,7 +23,7 @@ const Model = ({ setOpenModel, connectWallet }) => {
             <p
               key={i + 1}
               onClick={() => connectWallet()}
-              className="my-4 p-4 rounded-none bg-[#5bccf6] cursor-pointer font-semibold text-[#030e12] border-2 border-slate-600 hover:bg-[#8dcfe8] transform duration-300"
+              className="my-4 p-4 rounded-none bg-[#5bccf6] cursor-pointer  text-[#030e12] border-2 border-slate-600 hover:bg-[#8dcfe8] transform duration-300"
             >
               {el}
             </p>
