@@ -20,7 +20,7 @@ const TokenList = ({ tokenDate, setOpenTokenBox }) => {
             <p className="bg-[#fcde67] pr-2  border-2 border-slate-600 mr-11 pl-2 rounded-lg">
               BTC
             </p>
-            <p className="mr-10">
+            <p>
               <span className="font-semibold text-[#fcde67] mr-2">12</span>
               Bitcoin
             </p>
