@@ -1,5 +1,5 @@
 import "../styles/globals.css"
-import React, { useState, useContext, useEffect } from "react"
+
 //Internal Import
 import { Navbar } from "../components/index"
 
