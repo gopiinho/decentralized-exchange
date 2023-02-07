@@ -36,22 +36,23 @@ const Navbar = () => {
             </Link>
           </div>
         </div>
-
-        <div className="bg-[#FEFFA3] mr-8">
-          <input
-            type="text"
-            placeholder="Search Tokens"
-            className="bg-transparent border-2 border-[#fcee03] px-10 py-2 placeholder:text-slate-500 placeholder:text-center "
-          />
+        <div className={Style.Search_Token}>
+          <div className="bg-[#FEFFA3] ">
+            <input
+              type="text"
+              placeholder="Search Tokens"
+              className="bg-transparent border-2 border-[#fcee03] px-10 py-2 placeholder:text-slate-500 placeholder:text-center"
+            />
+          </div>
         </div>
         <div>
           <div className="flex justify-between items-center gap-8 ">
-            <h2 className="px-10 py-2 border-2 border-[#fcee03] bg-[#FEFFA3]">
+            <h2 className="px-10 py-2 border-2 border-[#fcee03] rounded-lg bg-[#FEFFA3]">
               Network
             </h2>
             <button
               onClick={() => setOpenModel(true)}
-              className="bg-[#FEFFA3]   py-2 px-10 border-2 border-[#fcee03] cursor-pointer hover:bg-[#f2e6bc] transform duration-300 "
+              className="bg-[#FEFFA3]   py-2 px-10 border-2 border-[#fcee03] rounded-lg cursor-pointer hover:bg-[#f2e6bc] transform duration-300"
             >
               Connect
             </button>

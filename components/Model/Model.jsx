@@ -10,12 +10,14 @@ const Model = ({ setOpenModel, connectWallet }) => {
   return (
     <div className="items-center grid z-50  absolute inset-0 justify-center h-screen w-screen  bg-[#030e12]/80">
       <div className="(full box) bg-[#EDCBFE] border-4 border-[#FFD4E4] p-8 rounded-xl ">
-        <div className="flex justify-between items-center pb-4 (heading)">
-          <p className="text-2xl">Connect Wallet</p>
+        <div className="flex justify-between items-center pb-4">
+          <p className="text-2xl text-semibold tracking-widest">
+            Connect Wallet
+          </p>
           <AiOutlineClose
             size={25}
             onClick={() => setOpenModel(false)}
-            className="cursor-pointer hover:text-[#5bccf6] transform duration-200"
+            className="cursor-pointer hover:text-slate-500 transform duration-300"
           />
         </div>
         <div className={Style.wallet}>

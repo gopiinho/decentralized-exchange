@@ -23,7 +23,7 @@ const MainSection = (accounts, tokenData) => {
           <div>
             <IoSettingsSharp
               size={20}
-              className="hover:text-slate-600 cursor-pointer trasnform duration-300"
+              className="hover:text-slate-500 cursor-pointer trasnform duration-300"
             />
           </div>
         </div>
@@ -35,7 +35,7 @@ const MainSection = (accounts, tokenData) => {
             <input type="text" placeholder="0" />
             <button
               onClick={() => openToken(true)}
-              className="bg-[#FEFFA3] py-2 px-10 h-full  border-2 border-[#fcee03]  cursor-pointer hover:bg-[#f2e6bc] transform duration-300 text-slate-700 "
+              className="bg-[#FEFFA3] py-2 px-10 h-full  border-2 border-[#fcee03]  cursor-pointer hover:bg-[#f2e6bc] transform duration-300 text-slate-700 rounded-lg"
             >
               {tokenOne.name || "ETH"}
               <small>17</small>
@@ -47,7 +47,7 @@ const MainSection = (accounts, tokenData) => {
             <input type="text" placeholder="0" />
             <button
               onClick={() => openToken(true)}
-              className="bg-[#FEFFA3] py-2 px-10 h-full  border-2 border-[#fcee03]  cursor-pointer hover:bg-[#f2e6bc] transform duration-300 text-slate-700"
+              className="bg-[#FEFFA3] py-2 px-10 h-full border-2 border-[#fcee03] cursor-pointer hover:bg-[#f2e6bc] transform duration-300 text-slate-700 rounded-lg"
             >
               {tokenSwap.name || "TKN"}
               <small>17</small>
