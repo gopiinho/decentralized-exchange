@@ -24,6 +24,7 @@ const MainSection = (accounts, tokenData) => {
             <IoSettingsSharp
               size={20}
               className="hover:text-slate-500 cursor-pointer trasnform duration-300"
+              onClick={() => setOpenSettings(true)}
             />
           </div>
         </div>
@@ -67,7 +68,7 @@ const MainSection = (accounts, tokenData) => {
           </button>
         )}
       </div>
-      {openSettings && <Token openSettings={openSettings} />}
+      {openSettings && <Token setOpenSettings={setOpenSettings} />}
       {openToken && (
         <Search
           openToken={setOpenToken}

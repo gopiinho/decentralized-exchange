@@ -12,7 +12,7 @@ const Navbar = () => {
   const [openTokenBox, setOpenTokenBox] = useState(false)
 
   return (
-    <div className=" fixed w-full z-[100]">
+    <div className=" fixed w-full z-[100] bg-[#EDCBFE]">
       <div className="flex justify-between items-center w-full p-5">
         <div className="md:flex flex-row">
           <div>
@@ -37,7 +37,7 @@ const Navbar = () => {
           </div>
         </div>
         <div className={Style.Search_Token}>
-          <div className="bg-[#FEFFA3] ">
+          <div className="bg-[#FEFFA3] mr-20">
             <input
               type="text"
               placeholder="Search Tokens"
