@@ -69,7 +69,7 @@ const MainSection = (accounts, tokenData) => {
         )}
       </div>
       {openSettings && <Token setOpenSettings={setOpenSettings} />}
-      {openToken && (
+      {!openToken && (
         <Search
           openToken={setOpenToken}
           tokens={setTokenOne}
