@@ -25,7 +25,7 @@ const Token = ({ setOpenSettings }) => {
             <input
               type="text"
               placeholder="0.5%"
-              className=" rounded-lg my-2"
+              className=" rounded-lg my-2 placeholder:text-center"
             />
             <button className="bg-[#FEFFA3]  px-4 h-full  border-2 border-[#fcee03]  cursor-pointer hover:bg-[#f2e6bc] transform duration-300 text-slate-700 rounded-lg">
               Auto
@@ -38,7 +38,11 @@ const Token = ({ setOpenSettings }) => {
         </div>
         <div className={Style.Setting_Input}>
           <div className="flex items-center gap-4">
-            <input type="text" placeholder="30" />
+            <input
+              type="text"
+              placeholder="30"
+              className="rounded-lg my-2 placeholder:text-center"
+            />
             <button className="bg-[#FEFFA3]  px-4 h-full  border-2 border-[#fcee03]  cursor-pointer hover:bg-[#f2e6bc] transform duration-300 text-slate-700 rounded-lg">
               Minutes
             </button>
