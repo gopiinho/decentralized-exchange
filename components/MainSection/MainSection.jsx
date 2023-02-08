@@ -12,8 +12,8 @@ const MainSection = (accounts, tokenData) => {
   const [openSwapToken, setOpenSwapToken] = useState(false)
 
   // TokenData States
-  const [tokenOne, setTokenOne] = useState({ name: "", image: "" })
-  const [tokenSwap, setTokenSwap] = useState({ name: "", image: "" })
+  const [tokenOne, setTokenOne] = useState({ name: "" })
+  const [tokenSwap, setTokenSwap] = useState({ name: "" })
 
   return (
     <div className="w-[90%] h-screen mx-auto flex justify-center items-center ">
@@ -35,7 +35,7 @@ const MainSection = (accounts, tokenData) => {
           <div className="flex items-center justify-between border-2 border-[#FFD4E4] rounded-lg pl-8 mt-4 p-2">
             <input type="text" placeholder="0" />
             <button
-              onClick={() => openToken(true)}
+              onClick={() => setOpenToken(true)}
               className="bg-[#FEFFA3] py-2 px-10 h-full  border-2 border-[#fcee03]  cursor-pointer hover:bg-[#f2e6bc] transform duration-300 text-slate-700 rounded-lg"
             >
               {tokenOne.name || "ETH"}
@@ -47,7 +47,7 @@ const MainSection = (accounts, tokenData) => {
           <div className="flex items-center justify-between border-2 border-[#FFD4E4] rounded-lg pl-8 mt-4 p-2">
             <input type="text" placeholder="0" />
             <button
-              onClick={() => openToken(true)}
+              onClick={() => setOpenSwapToken(true)}
               className="bg-[#FEFFA3] py-2 px-10 h-full border-2 border-[#fcee03] cursor-pointer hover:bg-[#f2e6bc] transform duration-300 text-slate-700 rounded-lg"
             >
               {tokenSwap.name || "TKN"}
@@ -69,14 +69,14 @@ const MainSection = (accounts, tokenData) => {
         )}
       </div>
       {openSettings && <Token setOpenSettings={setOpenSettings} />}
-      {!openToken && (
+      {openToken && (
         <Search
           openToken={setOpenToken}
           tokens={setTokenOne}
           tokenData={tokenData}
         />
       )}
-      {openToken && (
+      {openSwapToken && (
         <Search
           openToken={setOpenSwapToken}
           tokens={setTokenSwap}

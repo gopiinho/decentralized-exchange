@@ -1,0 +1,28 @@
+.Search_Input input {
+  border: 0;
+  outline: 0;
+  background-color: transparent;
+  font-size: 1rem;
+  width: 90%;
+}
+
+.Search_Token_List {
+  margin-top: 1.5rem;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+}
+
+.Search_Token_List span {
+  text-align: center;
+  gap: 0.5rem;
+  border: 2px solid #ffd4e4;
+  width: 5rem;
+  padding: 0.3rem;
+  border-radius: 1rem;
+  cursor: pointer;
+}
+
+.active {
+  background-color: #feffa3;
+}

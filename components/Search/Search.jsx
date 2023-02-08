@@ -12,21 +12,31 @@ const Search = ({ openToken, tokens, tokenData }) => {
     { name: "UNI" },
     { name: "CAKE" },
     { name: "WBNB" },
+    { name: "ADA" },
+    { name: "BTC" },
   ]
   return (
-    <div>
+    <div className=" absolute my-0 mx-auto p-8 w-[30rem] h-[25rem] bg-[#EDCBFE] border-2 border-[#FFD4E4] rounded-xl ">
       <div>
-        <div>
-          <h3>Select token</h3>
-          <AiOutlineClose size={20} onClick={() => openToken(false)} />
+        <div className="flex justify-between items-center ">
+          <h3 className="text-xl text-semibold tracking-widest">
+            Select token
+          </h3>
+          <AiOutlineClose
+            size={20}
+            onClick={() => openToken(false)}
+            className="cursor-pointer"
+          />
         </div>
-        <div>
-          <div>
-            <AiOutlineSearch size={20} />
+        <div className={Style.Search_Input}>
+          <div className="flex items-centre bg-[#FEFFA3] gap-4 rounded-lg py-2 px-4 my-4">
+            <div>
+              <AiOutlineSearch size={20} />
+            </div>
+            <input type="text" placeholder="Search name or contract address" />
           </div>
-          <input type="text" placeholder="Search name or contract address" />
         </div>
-        <div>
+        <div className={Style.Search_Token_List}>
           {sampleCoinData.map((el, i) => (
             <span
               key={i + 1}
