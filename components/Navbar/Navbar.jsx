@@ -10,6 +10,7 @@ import images from "../../assets"
 const Navbar = () => {
   const [openModel, setOpenModel] = useState(false)
   const [openTokenBox, setOpenTokenBox] = useState(false)
+  const [account, setAccount] = useState(false)
 
   return (
     <div className=" fixed w-full z-[100] bg-[#EDCBFE]">
@@ -46,16 +47,26 @@ const Navbar = () => {
           </div>
         </div>
         <div>
-          <div className="flex justify-between items-center gap-8 ">
+          <div className="flex justify-between items-center gap-8">
             <h2 className="px-10 py-2 border-2 border-[#fcee03] rounded-lg bg-[#FEFFA3]">
               Network
             </h2>
-            <button
-              onClick={() => setOpenModel(true)}
-              className="bg-[#FEFFA3]   py-2 px-10 border-2 border-[#fcee03] rounded-lg cursor-pointer hover:bg-[#f2e6bc] transform duration-300"
-            >
-              Connect
-            </button>
+            {account ? (
+              <button
+                onClick={() => setOpenModel(true)}
+                className="bg-[#FEFFA3]   py-2 px-10 border-2 border-[#fcee03] rounded-lg cursor-pointer hover:bg-[#f2e6bc] transform duration-300"
+              >
+                Connect
+              </button>
+            ) : (
+              <button
+                onClick={() => setOpenTokenBox(true)}
+                className="bg-[#FEFFA3]   py-2 px-10 border-2 border-[#fcee03] rounded-lg cursor-pointer hover:bg-[#f2e6bc] transform duration-300"
+              >
+                Address
+              </button>
+            )}
+
             {openModel && (
               <Model setOpenModel={setOpenModel} connectWallet="Connect" />
             )}
