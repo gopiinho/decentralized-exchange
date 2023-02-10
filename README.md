@@ -1,3 +1,11 @@
 # Decentralized Exchange
 
 Decentralized exchange based on Uniswap AMM model.
+
+## Learning Takeaways
+
+#### Contract - SwapToken.sol
+
+1. TransferHelper is a smart contract in Solidity, specifically developed for the Uniswap decentralized exchange platform. It is designed to simplify the process of transferring tokens from one address to another, without the need for users to manually manage the complex interactions between different smart contracts.
+
+2. Uniswap's iSwapRouter is a smart contract that acts as a hub for exchanging tokens on the Uniswap platform. It makes it easy for users to trade tokens by automatically finding the best pool of liquidity and handling the trade for them. The iSwapRouter also collects fees from trades and gives them to the people who provide the liquidity for the platform. This helps to ensure that there is always enough liquidity for trading and encourages people to participate in the platform.
