@@ -20,5 +20,15 @@ describe("SingleSwapToken", () => {
     singleSwapToken = await swaptoken.deploy()
 
     await singleSwapToken.deployed()
+
+    weth = await ethers.getContractAt("IWETH", USDC)
+    weth = await ethers.getContractAt("IERC20", BUSD)
+    weth = await ethers.getContractAt("IERC20", WETH9)
+
+    console.log(usdc)
+    console.log(busd)
+    console.log(weth)
+    console.log(accounts)
+    console.log(singleSwapToken)
   })
 })
