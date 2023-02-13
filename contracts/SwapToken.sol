@@ -27,7 +27,7 @@ contract SingleSwapToken {
 
         ISwapRouter.ExactInputSingleParams memory parmas = ISwapRouter
             .ExactInputSingleParams({
-                tokenIn: USDC,
+                tokenIn: WETH9,
                 tokenOut: BUSD,
                 fee: 4000,
                 recipient: msg.sender,
@@ -40,7 +40,7 @@ contract SingleSwapToken {
         _amountOut = swapRouter.exactInputSingle(parmas);
     }
 
-    function swapExactInputString(
+    function swapExactOutputString(
         uint _amountOut,
         uint _amountInMaximum
     ) external returns (uint _amountIn) {
