@@ -1,7 +1,7 @@
 require("@nomicfoundation/hardhat-toolbox")
 require("dotenv").config()
 
-const RINKEBY_RPC_URL = process.env.RINKEBY_RPC_URL
+const MAINNET_RPC_URL = process.env.MAINNET_RPC_URL
 
 /** @type import('hardhat/config').HardhatUserConfig */
 module.exports = {
@@ -9,7 +9,7 @@ module.exports = {
   networks: {
     hardhat: {
       forking: {
-        url: [RINKEBY_RPC_URL],
+        url: MAINNET_RPC_URL,
       },
     },
   },

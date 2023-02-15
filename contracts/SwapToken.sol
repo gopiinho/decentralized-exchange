@@ -11,24 +11,24 @@ contract SingleSwapToken {
         ISwapRouter(0xE592427A0AEce92De3Edee1F18E0157C05861564);
 
     address public constant USDC = 0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48;
-    address public constant BUSD = 0x4Fabb145d64652a948d72533023f6E7A623C7C53;
+    address public constant DAI = 0x6B175474E89094C44Da98b954EedeAC495271d0F;
     address public constant WETH9 = 0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2;
 
     function swapExactInputString(
         uint _amountIn
     ) external returns (uint _amountOut) {
         TransferHelper.safeTransferFrom(
-            USDC,
+            WETH9,
             msg.sender,
             address(this),
             _amountIn
         );
-        TransferHelper.safeApprove(USDC, address(swapRouter), _amountIn);
+        TransferHelper.safeApprove(WETH9, address(swapRouter), _amountIn);
 
-        ISwapRouter.ExactInputSingleParams memory parmas = ISwapRouter
+        ISwapRouter.ExactInputSingleParams memory params = ISwapRouter
             .ExactInputSingleParams({
                 tokenIn: WETH9,
-                tokenOut: BUSD,
+                tokenOut: DAI,
                 fee: 4000,
                 recipient: msg.sender,
                 deadline: block.timestamp,
@@ -36,8 +36,7 @@ contract SingleSwapToken {
                 amountOutMinimum: 0,
                 sqrtPriceLimitX96: 0
             });
-
-        _amountOut = swapRouter.exactInputSingle(parmas);
+        _amountOut = swapRouter.exactInputSingle(params);
     }
 
     function swapExactOutputString(
@@ -45,17 +44,21 @@ contract SingleSwapToken {
         uint _amountInMaximum
     ) external returns (uint _amountIn) {
         TransferHelper.safeTransferFrom(
-            USDC,
+            WETH9,
             msg.sender,
             address(this),
             _amountInMaximum
         );
-        TransferHelper.safeApprove(USDC, address(swapRouter), _amountInMaximum);
+        TransferHelper.safeApprove(
+            WETH9,
+            address(swapRouter),
+            _amountInMaximum
+        );
 
-        ISwapRouter.ExactOutputSingleParams memory parmas = ISwapRouter
+        ISwapRouter.ExactOutputSingleParams memory params = ISwapRouter
             .ExactOutputSingleParams({
-                tokenIn: USDC,
-                tokenOut: BUSD,
+                tokenIn: WETH9,
+                tokenOut: DAI,
                 fee: 4000,
                 recipient: msg.sender,
                 deadline: block.timestamp,
@@ -63,11 +66,11 @@ contract SingleSwapToken {
                 amountInMaximum: _amountInMaximum,
                 sqrtPriceLimitX96: 0
             });
-        _amountIn = swapRouter.exactOutputSingle(parmas);
+        _amountIn = swapRouter.exactOutputSingle(params);
         if (_amountIn < _amountInMaximum) {
-            TransferHelper.safeApprove(USDC, address(swapRouter), 0);
+            TransferHelper.safeApprove(WETH9, address(swapRouter), 0);
             TransferHelper.safeTransfer(
-                USDC,
+                WETH9,
                 msg.sender,
                 _amountInMaximum - _amountIn
             );

@@ -4,14 +4,14 @@ const { ethers } = require("hardhat")
 // Assigning addresses of the coins we are about to use
 
 const USDC = "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48"
-const BUSD = "0x4Fabb145d64652a948d72533023f6E7A623C7C53"
+const DAI = "0x6B175474E89094C44Da98b954EedeAC495271d0F"
 const WETH9 = "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2"
 
 describe("SingleSwapToken", () => {
   let singleSwapToken
   let accounts
   let usdc
-  let busd
+  let dai
   let weth
 
   before(async () => {
@@ -21,14 +21,21 @@ describe("SingleSwapToken", () => {
 
     await singleSwapToken.deployed()
 
-    weth = await ethers.getContractAt("IWETH", USDC)
-    weth = await ethers.getContractAt("IERC20", BUSD)
-    weth = await ethers.getContractAt("IERC20", WETH9)
+    usdc = await ethers.getContractAt("IERC20", USDC)
+    dai = await ethers.getContractAt("IERC20", DAI)
+    weth = await ethers.getContractAt("IWETH", WETH9)
+  })
 
-    console.log(usdc)
-    console.log(busd)
-    console.log(weth)
-    console.log(accounts)
-    console.log(singleSwapToken)
+  it("Tests the swapExactInputString function", async () => {
+    const amountIn = 10n ** 18n
+
+    // Deposit WETH from created Interface
+    await weth.deposit({ value: amountIn })
+    await weth.approve(singleSwapToken.address, amountIn)
+
+    // Perform the swap
+    await singleSwapToken.swapExactInputString(amountIn)
+
+    console.log("DAI balance", await dai.balanceoOf(accounts[0].address))
   })
 })
