@@ -39,4 +39,18 @@ describe("SingleSwapToken", () => {
     await singleSwapToken.swapExactInputSingle(amountIn)
     console.log("DAI balance", await dai.balanceOf(accounts[0].address))
   })
+
+  it("Tests the swapExactOutputSingle function", async () => {
+    const amountOut = 100n * 10n ** 18n
+    const amountInMaximum = 10n ** 18n
+
+    // Deposit WETH from created Interface
+    await weth.deposit({ value: amountInMaximum })
+    await weth.approve(singleSwapToken.address, amountInMaximum)
+
+    // Perform the swap
+    await singleSwapToken.swapExactOutputSingle(amountOut, amountInMaximum)
+    console.log(accounts[0].address)
+    console.log(accounts[1].address)
+  })
 })
