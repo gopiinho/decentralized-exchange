@@ -58,8 +58,8 @@ contract SwapMultiHop {
             _amountInMaximum
         );
 
-        ISwapRouter.ExactInputParams memory params = ISwapRouter
-            .ExactInputParams({
+        ISwapRouter.ExactOutputParams memory params = ISwapRouter
+            .ExactOutputParams({
                 path: abi.encodePacked(
                     dai,
                     uint24(100),
@@ -69,9 +69,19 @@ contract SwapMultiHop {
                 ),
                 recipient: msg.sender,
                 deadline: block.timestamp,
-                amountIn: _amountOut,
-                amountOutMinimum: _amountInMaximum
+                amountOut: _amountOut,
+                amountInMaximum: _amountInMaximum
             });
-        _amountOut = swapRouter.exactInput(params);
+        _amountIn = swapRouter.exactOutput(params);
+
+        if (_amountIn < _amountInMaximum) {
+            TransferHelper.safeApprove(weth9, address(swapRouter), 0);
+            TransferHelper.safeTransferFrom(
+                weth9,
+                address(this),
+                msg.sender,
+                _amountInMaximum - _amountIn
+            );
+        }
     }
 }
