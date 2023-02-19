@@ -41,4 +41,37 @@ contract SwapMultiHop {
             });
         _amountOut = swapRouter.exactInput(params);
     }
+
+    function swapExactOutputMultiHop(
+        uint _amountOut,
+        uint _amountInMaximum
+    ) external returns (uint _amountIn) {
+        TransferHelper.safeTransferFrom(
+            weth9,
+            msg.sender,
+            address(this),
+            _amountInMaximum
+        );
+        TransferHelper.safeApprove(
+            weth9,
+            address(swapRouter),
+            _amountInMaximum
+        );
+
+        ISwapRouter.ExactInputParams memory params = ISwapRouter
+            .ExactInputParams({
+                path: abi.encodePacked(
+                    dai,
+                    uint24(100),
+                    usdc,
+                    uint24(3000),
+                    weth9
+                ),
+                recipient: msg.sender,
+                deadline: block.timestamp,
+                amountIn: _amountOut,
+                amountOutMinimum: _amountInMaximum
+            });
+        _amountOut = swapRouter.exactInput(params);
+    }
 }
