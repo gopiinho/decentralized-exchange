@@ -27,4 +27,16 @@ describe("SwapMultiHop contract", () => {
     dai = await ethers.getContractAt("IERC20", DAI)
     usdc = await ethers.getContractAt("IERC20", USDC)
   })
+
+  it("Tests the swapExactInputMultiHop function", async () => {
+    const amountIn = 10n ** 18n
+
+    // Deposit WETH from created Interface
+    await weth.deposit({ value: amountIn })
+    await weth.approve(swapMultiHop.address, amountIn)
+
+    // Perform the swap
+    await swapMultiHop.swapExactInputMultiHop(amountIn)
+    console.log("DAI balance", await dai.balanceOf(accounts[0].address))
+  })
 })
