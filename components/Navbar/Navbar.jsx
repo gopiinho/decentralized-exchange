@@ -6,6 +6,7 @@ import Image from "next/image"
 import Style from "./Navbar.module.css"
 import { Model, TokenList } from "../index"
 import images from "../../assets"
+import { connectWallet } from "../../utils/appFeatures"
 
 const Navbar = () => {
   const [openModel, setOpenModel] = useState(false)
