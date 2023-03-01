@@ -148,7 +148,7 @@ export const connectIWETH = async () => {
 }
 
 // Connecting to DAI Contract
-export const connectDai = async () => {
+export const connectDAI = async () => {
   try {
     const web3modal = new Web3Modal()
     const connection = await web3modal.connect()
