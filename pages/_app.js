@@ -2,11 +2,14 @@ import "../styles/globals.css"
 
 //Internal Import
 import { Navbar } from "../components/index"
+import { SwapTokenContextProvider } from "../context/SwapContext"
 
 const App = ({ Component, pageProps }) => (
   <div>
-    <Navbar />
-    <Component {...pageProps} />
+    <SwapTokenContextProvider>
+      <Navbar />
+      <Component {...pageProps} />
+    </SwapTokenContextProvider>
   </div>
 )
 
