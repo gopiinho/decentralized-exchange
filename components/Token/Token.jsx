@@ -6,7 +6,7 @@ import Style from "./Token.module.css"
 
 const Token = ({ setOpenSettings }) => {
   return (
-    <div className="absolute my-0 mx-auto p-8 w-[30rem] h-[25rem] bg-[#EDCBFE] border-2 border-[#FFD4E4] rounded-xl ">
+    <div className="absolute my-0 mx-auto p-8 w-[30rem] h-[25rem] bg-[#131313] border-[1px] border-white/50 rounded-xl ">
       <div className="">
         <div className="flex justify-between item-center py-4">
           <h3 className="text-xl text-semibold tracking-widest ">Settings</h3>
@@ -25,9 +25,9 @@ const Token = ({ setOpenSettings }) => {
             <input
               type="text"
               placeholder="0.5%"
-              className=" rounded-lg my-2 placeholder:text-center"
+              className=" rounded-lg py-1 my-2 "
             />
-            <button className="bg-[#FEFFA3]  px-4 h-full  border-2 border-[#fcee03]  cursor-pointer hover:bg-[#f2e6bc] transform duration-300 text-slate-700 rounded-lg">
+            <button className="bg-black/50 hover:bg-black/60 text-pink-500 hover:text-pink-600 px-6 py-1  border-white/40 border-[1px] cursor-pointer transform duration-200 ease-in rounded-xl text-xl ">
               Auto
             </button>
           </div>
@@ -41,9 +41,9 @@ const Token = ({ setOpenSettings }) => {
             <input
               type="text"
               placeholder="30"
-              className="rounded-lg my-2 placeholder:text-center"
+              className=" rounded-lg py-1 my-2 "
             />
-            <button className="bg-[#FEFFA3]  px-4 h-full  border-2 border-[#fcee03]  cursor-pointer hover:bg-[#f2e6bc] transform duration-300 text-slate-700 rounded-lg">
+            <button className="bg-black/50 hover:bg-black/60 text-pink-500 hover:text-pink-600 px-6 py-1  border-white/40 border-[1px] cursor-pointer transform duration-200 ease-in rounded-xl text-xl ">
               Minutes
             </button>
           </div>
