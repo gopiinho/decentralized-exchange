@@ -15,7 +15,7 @@ const Navbar = () => {
 
   return (
     <div className=" fixed w-full z-[100] bg-[#27262C]">
-      <div className="flex justify-between items-center w-full p-2">
+      <div className="flex justify-between items-center w-full p-3">
         <div className="md:flex flex-row">
           <div>
             <Image
@@ -28,17 +28,17 @@ const Navbar = () => {
           </div>
           <div className="flex jusify-between mx-5 items-center ">
             <Link href="/">
-              <p className="px-4 mr-5 hover:bg-[#121626] py-2 rounded-lg transform duration-200">
+              <p className="px-4 mr-5 hover:bg-white/10 ease-in py-2 rounded-xl transform duration-200">
                 Swap
               </p>
             </Link>
             <Link href="/d">
-              <p className="px-4 mr-5 hover:bg-[#121626] rounded-lg py-2 transform duration-200">
+              <p className="px-4 mr-5 hover:bg-white/10 ease-in rounded-xl py-2 transform duration-200">
                 Tokens
               </p>
             </Link>
             <Link href="/">
-              <p className="px-4  hover:bg-[#121626] rounded-lg py-2 transform duration-200">
+              <p className="px-4 hover:bg-white/10 ease-in rounded-xl py-2 transform duration-200">
                 Pools
               </p>
             </Link>
@@ -48,7 +48,7 @@ const Navbar = () => {
           <div className="hover:border-[#EDCBFE] border-white/50 bg-white/10  ease-in transform duration-200 hover:shadow-neon-main border-[1px] mr-20 rounded-xl">
             <input
               type="text"
-              placeholder="Search Tokens"
+              placeholder="Search tokens"
               className=" px-20 py-2 focus:bg-black/50  placeholder:text-center rounded-xl transform duration-200"
             />
           </div>
@@ -61,14 +61,14 @@ const Navbar = () => {
             {account ? (
               <button
                 onClick={() => setOpenModel(true)}
-                className="bg-[#121626]  py-2 px-10 border-2 border-white/50 rounded-xl cursor-pointer hover:bg-[#f2e6bc] transform duration-300"
+                className="bg-[#EDCBFE]/80 text-pink-600 hover:text-pink-600/70 py-2 px-10 border-2 border-white/50 rounded-xl  cursor-pointer transform duration-200"
               >
                 Connect
               </button>
             ) : (
               <button
                 onClick={() => setOpenTokenBox(true)}
-                className="bg-[#EDCBFE] text-pink-600 hover:text-pink-600/70 py-2 px-10 border-2 border-white/50 rounded-xl  cursor-pointer transform duration-200"
+                className="bg-black/60 ease-in hover:bg-black/40 text-pink-600 hover:text-pink-500 py-2 px-10 border-[1px] hover:border-[#EDCBFE] border-white/50 rounded-xl  cursor-pointer transform duration-200"
               >
                 Address
               </button>
