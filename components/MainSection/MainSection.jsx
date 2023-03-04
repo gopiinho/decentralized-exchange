@@ -36,7 +36,7 @@ const MainSection = (accounts, tokenData) => {
             <input type="text" placeholder="0" className="" />
             <button
               onClick={() => setOpenToken(true)}
-              className="bg-black/50 hover:bg-black/60 text-pink-500 hover:text-pink-600 px-12  border-white/40 border-[1px] cursor-pointer transform duration-200 ease-in rounded-xl text-xl "
+              className="bg-black/50 hover:bg-black/60 text-pink-500 hover:text-pink-600 px-12 border-white/40 border-[1px] cursor-pointer transform duration-200 ease-in rounded-xl text-xl "
             >
               {tokenOne.name || "ETH"}
               <small>17</small>
@@ -44,7 +44,7 @@ const MainSection = (accounts, tokenData) => {
           </div>
         </div>
         <div className={Style.Swap_Input}>
-          <div className="flex items-center justify-between  rounded-lg pl-8 mt-4 p-2 py-4 bg-white/5">
+          <div className="flex items-center justify-between rounded-lg pl-8 mt-4 p-2 py-4 bg-white/5">
             <input type="text" placeholder="0" />
             <button
               onClick={() => setOpenSwapToken(true)}
@@ -56,13 +56,13 @@ const MainSection = (accounts, tokenData) => {
           </div>
         </div>
         {accounts ? (
-          <button className="bg-zinc-700  hover:bg-zinc-600 text-pink-600 text-2xl py-5 px-8 my-4 w-full  cursor-pointer  transform duration-200 font-semibold tracking-wider rounded-xl ease-in">
+          <button className="bg-zinc-700 hover:bg-zinc-600 text-pink-600 text-2xl py-5 px-8 my-4 w-full cursor-pointer transform duration-200 font-semibold tracking-wider rounded-xl ease-in">
             Connect Wallet
           </button>
         ) : (
           <button
             onClick={() => {}}
-            className="bg-black/50  hover:bg-black/60 text-2xl py-5 px-8 my-4 w-full cursor-pointer  transform duration-200 font-semibold tracking-wider rounded-xl ease-in"
+            className="bg-zinc-700 hover:bg-zinc-600 text-pink-600 text-2xl py-5 px-8 my-4 w-full cursor-pointer transform duration-200 font-semibold tracking-wider rounded-xl ease-in"
           >
             Swap
           </button>

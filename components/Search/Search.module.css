@@ -3,7 +3,7 @@
   outline: 0;
   background-color: transparent;
   font-size: 1rem;
-  width: 90%;
+  width: 100%;
 }
 
 .Search_Token_List {
@@ -16,13 +16,20 @@
 .Search_Token_List span {
   text-align: center;
   gap: 0.5rem;
-  border: 2px solid #ffd4e4;
+  border: 1px solid #52525b;
   width: 5rem;
   padding: 0.3rem;
   border-radius: 1rem;
   cursor: pointer;
 }
 
+.Search_Token_List span:hover {
+  background: rgba(61, 60, 66, 0.4);
+}
+
 .active {
-  background-color: #feffa3;
+  background: rgba(218, 40, 119, 0.2);
+  color: #da2877;
+  border: 1px solid #da2877;
+  border-radius: 1rem;
 }
