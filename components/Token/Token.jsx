@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react"
 import { AiOutlineClose, AiFillLock, AiFillClockCircle } from "react-icons/ai"
+import { IoWallet } from "react-icons/io"
 
 // Internal Import
 import Style from "./Token.module.css"
@@ -14,7 +15,7 @@ const Token = ({ setOpenSettings }) => {
           </h3>
           <AiOutlineClose
             size={20}
-            className="cursor-pointer"
+            className="cursor-pointer hover:text-pink-600 transform duration-300"
             onClick={() => setOpenSettings(false)}
           />
         </div>

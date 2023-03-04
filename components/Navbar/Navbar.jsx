@@ -2,6 +2,7 @@ import React, { useState, useEffect, useContext } from "react"
 import Link from "next/link"
 import Image from "next/image"
 import { RiArrowDownSLine } from "react-icons/ri"
+import { IoWallet } from "react-icons/io5"
 
 // Internal Imports
 import Style from "./Navbar.module.css"
@@ -64,20 +65,22 @@ const Navbar = () => {
             {account ? (
               <button
                 onClick={() => setOpenModel(true)}
-                className="bg-[#EDCBFE]/80 text-pink-600 hover:text-pink-600/70 py-2 px-10 border-2 border-white/50 rounded-xl  cursor-pointer transform duration-200"
+                className="flex justify-between bg-[#1f1f1f] ease-in hover:bg-zinc-900 hover:text-pink-500 py-2 px-6 border-[1px] hover:border-white/20 border-white/10 rounded-xl  cursor-pointer transform duration-200"
               >
                 Connect
+                <IoWallet size={25} className=" pl-2 text-pink-500" />
               </button>
             ) : (
               <button
                 onClick={() => setOpenTokenBox(true)}
-                className="bg-black/60 ease-in hover:bg-black/40 text-pink-600 hover:text-pink-500 py-2 px-10 border-[1px] hover:border-[#EDCBFE] border-white/50 rounded-xl  cursor-pointer transform duration-200"
+                className="flex justify-between bg-[#1f1f1f] ease-in hover:bg-zinc-900 hover:text-pink-500 py-2 px-6 border-[1px] hover:border-white/20 border-white/10 rounded-xl  cursor-pointer transform duration-200"
               >
                 Address
+                <IoWallet size={25} className=" pl-2 text-pink-500" />
               </button>
             )}
 
-            {!openModel && (
+            {openModel && (
               <Model setOpenModel={setOpenModel} connectWallet="Connect" />
             )}
           </div>
