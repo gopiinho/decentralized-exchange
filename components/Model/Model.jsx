@@ -9,7 +9,7 @@ const Model = ({ setOpenModel, connectWallet }) => {
 
   return (
     <div className="items-center grid z-50  absolute inset-0 justify-center h-screen w-screen  bg-[#030e12]/80">
-      <div className="(full box) bg-[#EDCBFE] border-4 border-[#FFD4E4] p-8 rounded-xl ">
+      <div className="(full box) bg-[#131313] border-[1px] border-white/20  p-8 rounded-xl ">
         <div className="flex justify-between items-center pb-4">
           <p className="text-2xl text-semibold tracking-widest">
             Connect Wallet
@@ -25,7 +25,7 @@ const Model = ({ setOpenModel, connectWallet }) => {
             <p
               key={i + 1}
               onClick={() => connectWallet()}
-              className="my-4 p-4 rounded-l bg-[#FEFFA3] text-slate-800 cursor-pointer   border-2 border-[#fcee03]  hover:bg-[#f2e6bc] transform duration-300"
+              className="my-4 p-4 rounded-xl bg-white/5 text-white cursor-pointer  transform duration-300 "
             >
               {el}
             </p>

@@ -77,7 +77,7 @@ const Navbar = () => {
               </button>
             )}
 
-            {openModel && (
+            {!openModel && (
               <Model setOpenModel={setOpenModel} connectWallet="Connect" />
             )}
           </div>
