@@ -23,7 +23,7 @@ const MainSection = (accounts, tokenData) => {
           <div>
             <IoSettingsSharp
               size={20}
-              className="hover:text-[#BB86FC] cursor-pointer trasnform duration-300"
+              className="hover:text-pink-600 cursor-pointer trasnform duration-300"
               onClick={() => setOpenSettings(true)}
             />
           </div>
@@ -56,7 +56,7 @@ const MainSection = (accounts, tokenData) => {
           </div>
         </div>
         {accounts ? (
-          <button className="bg-zinc-700  hover:bg-zinc-600 text-sky-500 text-2xl py-5 px-8 my-4 w-full  cursor-pointer  transform duration-200 font-semibold tracking-wider rounded-xl ease-in">
+          <button className="bg-zinc-700  hover:bg-zinc-600 text-pink-600 text-2xl py-5 px-8 my-4 w-full  cursor-pointer  transform duration-200 font-semibold tracking-wider rounded-xl ease-in">
             Connect Wallet
           </button>
         ) : (

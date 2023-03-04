@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useContext } from "react"
 import Link from "next/link"
 import Image from "next/image"
+import { RiArrowDownSLine } from "react-icons/ri"
 
 // Internal Imports
 import Style from "./Navbar.module.css"
@@ -55,9 +56,11 @@ const Navbar = () => {
         </div>
         <div>
           <div className="flex justify-between items-center gap-8">
-            <h2 className=" px-10 py-2 hover:bg-white/10 border-[1px] border-white/50  rounded-xl transform duration-200 cursor-pointer">
-              Network
-            </h2>
+            <div className="flex justify-between items-center gap-2 px-3 py-2 hover:bg-white/10  rounded-lg transform duration-200 cursor-pointer">
+              <h2 className="mr-2 ">Network</h2>
+              <RiArrowDownSLine size={20} />
+            </div>
+
             {account ? (
               <button
                 onClick={() => setOpenModel(true)}

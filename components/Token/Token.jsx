@@ -9,19 +9,21 @@ const Token = ({ setOpenSettings }) => {
     <div className="absolute my-0 mx-auto p-8 w-[30rem] h-[25rem] bg-[#131313] border-[1px] border-white/50 rounded-xl ">
       <div className="">
         <div className="flex justify-between item-center py-4">
-          <h3 className="text-xl text-semibold tracking-widest ">Settings</h3>
+          <h3 className="text-xl text-semibold tracking-widest pb-6">
+            Settings
+          </h3>
           <AiOutlineClose
             size={20}
             className="cursor-pointer"
             onClick={() => setOpenSettings(false)}
           />
         </div>
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-4 text-slate-400">
           <p className="">Slippage Tolerance</p>
           <AiFillLock size={20} />
         </div>
         <div className={Style.Setting_Input}>
-          <div className="flex items-center gap-4 my-4">
+          <div className="flex items-center gap-4 my-4 ">
             <input
               type="text"
               placeholder="0.5%"
@@ -32,7 +34,7 @@ const Token = ({ setOpenSettings }) => {
             </button>
           </div>
         </div>
-        <div className="flex items-center gap-4 my-4">
+        <div className="flex items-center gap-4 my-4 text-slate-400">
           <p>Transaction Deadline</p>
           <AiFillClockCircle size={20} />
         </div>
