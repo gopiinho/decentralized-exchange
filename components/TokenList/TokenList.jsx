@@ -4,24 +4,24 @@ import { IoSettingsSharp } from "react-icons/io5"
 const TokenList = ({ tokenData, setOpenTokenBox }) => {
   const data = [1, 2, 3, 4, 5]
   return (
-    <div className="absolute w-80 border-2 border-[#FFD4E4] mt-8 right-0 mr-4 p-4 bg-[#EDCBFE] rounded-lg">
+    <div className="absolute w-80 border-[1px] border-white/20 mt-8 right-0 mr-4 p-4 bg-[#131313] rounded-xl">
       <p
         onClick={() => setOpenTokenBox(false)}
-        className="absolute cursor-pointer -right-0 mr-4 z-[11111] hover:text-slate-500 transform duration-300"
+        className="absolute cursor-pointer -right-0 mr-4 z-[11111] hover:text-pink-600 transform duration-300"
       >
         <IoSettingsSharp size={20} />
       </p>
       <div className="w-full py-4 font-semibold tracking-widest ">
-        <h2>Your Tokens</h2>
+        <h2>Your tokens</h2>
       </div>
       {data.map((el, i) => (
-        <div className="relative cursor-pointer border-b-2 border-[#FFD4E4] py-2">
-          <div className="grid grid-cols-3 items-center">
-            <p className="bg-[#FEFFA3] pr-2  border-2 border-[#fcee03] mr-11 pl-2 rounded-lg ">
+        <div className="relative cursor-pointer border-b-2 border-white/10 py-[1px]">
+          <div className="grid grid-cols-3 items-center py-2">
+            <p className="bg-zinc-800 pr-2  border-[1px] border-pink-600 mr-11 pl-2 rounded-lg ">
               BTC
             </p>
             <p className="">
-              <span className="font-semibold text-[#FEFFA3] mr-2 ">12</span>
+              <span className="font-semibold text-pink-600 mr-2 ">12</span>
               Bitcoin
             </p>
           </div>

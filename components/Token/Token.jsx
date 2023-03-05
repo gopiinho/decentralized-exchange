@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react"
 import { AiOutlineClose, AiFillLock, AiFillClockCircle } from "react-icons/ai"
-import { IoWallet } from "react-icons/io"
 
 // Internal Import
 import Style from "./Token.module.css"
