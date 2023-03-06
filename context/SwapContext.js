@@ -14,6 +14,7 @@ import {
 } from "../utils/appFeatures"
 
 import { IWETHABI } from "./Constants"
+import ERC20 from "./ERC20.json"
 
 export const SwapTokenContext = React.createContext()
 
@@ -30,8 +31,8 @@ export const SwapTokenContextProvider = ({ children }) => {
   const [tokenData, setTokenData] = useState([])
 
   const addToken = [
-    "0x2b639Cc84e1Ad3aA92D4Ee7d2755A6ABEf300D72",
-    "0xF85895D097B2C25946BB95C4d11E2F3c035F8f0C",
+    "0xB468647B04bF657C9ee2de65252037d781eABafD",
+    "0x47c05BCCA7d57c87083EB4e586007530eE4539e9",
     "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
   ]
 
@@ -50,7 +51,7 @@ export const SwapTokenContextProvider = ({ children }) => {
       const connection = await web3modal.connect()
       const provider = new ethers.providers.Web3Provider(connection)
 
-      // Checking balance
+      // *** Checking ETH balance ***
       const balance = await provider.getBalance(userAccount)
 
       // Converting the BigNumber to more readable format
@@ -59,6 +60,20 @@ export const SwapTokenContextProvider = ({ children }) => {
       // Converting the string to proper eth value using ethers utils
       const ethValue = ethers.utils.formatEther(convertedBalance)
       setEther(ethValue)
+
+      // *** Getting All token balance ***
+      addToken.map(async (el, i) => {
+        // Getting contract instances
+        const contract = new ethers.Contract(el, ERC20, provider)
+        // Getting the balances for the tokens
+        const userBalance = await contract.balanceOf(userAccount)
+
+        // Getting Token 1 balance
+        const tokenOne = BigNumber.from(userBalance).toString()
+        const tokenOneBalance = ethers.utils.formatEther(tokenOne)
+
+        console.log(`Token one balance ${tokenOneBalance} `)
+      })
     } catch (error) {
       console.log(error)
     }
