@@ -3,7 +3,7 @@ import React, { useState, useContext } from "react"
 // Internal Imports
 import Style from "./MainSection.module.css"
 import { Token, Search } from "../index"
-import { IoSettingsSharp } from "react-icons/io5"
+import { IoSettingsSharp, IoConstructOutline } from "react-icons/io5"
 
 const MainSection = (accounts, tokenData) => {
   // States
@@ -16,8 +16,8 @@ const MainSection = (accounts, tokenData) => {
   const [tokenSwap, setTokenSwap] = useState({ name: "" })
 
   return (
-    <div className="w-[90%] h-screen mx-auto flex justify-center items-center pb-20 ">
-      <div className=" bg-[#111111]/90 border-[1px] border-white/20 w-[35rem] p-4 rounded-xl ">
+    <div className="w-[90%] h-screen mx-auto flex flex-col justify-center items-center pb-10 ">
+      <div className=" bg-[#111111]/90 border-[1px] border-white/20 w-[35rem] p-4 rounded-xl">
         <div className="flex justify-between items-center">
           <p className="text-xl text-semibold tracking-widest">Swap</p>
           <div>
@@ -83,6 +83,11 @@ const MainSection = (accounts, tokenData) => {
           tokenData={tokenData}
         />
       )}
+
+      <div className="mt-20 flex justify-between gap-4 items-center text-lg tracking-wider text-pink-600 ">
+        <p>Currently being built</p>
+        <IoConstructOutline size={30} />
+      </div>
     </div>
   )
 }
