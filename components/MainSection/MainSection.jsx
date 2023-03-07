@@ -1,9 +1,11 @@
 import React, { useState, useContext } from "react"
+import Link from "next/link"
 
 // Internal Imports
 import Style from "./MainSection.module.css"
 import { Token, Search } from "../index"
-import { IoSettingsSharp, IoConstructOutline } from "react-icons/io5"
+import { IoSettingsSharp } from "react-icons/io5"
+import { SlSocialGithub } from "react-icons/sl"
 
 const MainSection = (accounts, tokenData) => {
   // States
@@ -86,7 +88,14 @@ const MainSection = (accounts, tokenData) => {
 
       <div className="mt-20 flex justify-between gap-4 items-center text-lg tracking-wider text-pink-600 ">
         <p>Currently being built</p>
-        <IoConstructOutline size={30} />
+        <Link
+          href="https://github.com/igopib/decentralized-exchange"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-2xl p-4 cursor-pointer hover:scale-125 ease-in duration-300 hover:shadow-[#ff2a6d] hover:text-[#ff2a6d]"
+        >
+          <SlSocialGithub size={30} />
+        </Link>
       </div>
     </div>
   )
