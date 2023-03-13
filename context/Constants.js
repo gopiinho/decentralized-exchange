@@ -8,19 +8,19 @@ import iweth from "./IWETH.json"
 
 // SingleSwapToken
 export const SingleSwapTokenAddress =
-  "0x0b27a79cb9C0B38eE06Ca3d94DAA68e0Ed17F953"
+  "0x47c05BCCA7d57c87083EB4e586007530eE4539e9"
 export const SingleSwapTokenABI = singleSwap.abi
 
 // SwapMultiHop
-export const SwapMultiHopAddress = "0x7bdd3b028C4796eF0EAf07d11394d0d9d8c24139"
+export const SwapMultiHopAddress = "0x408F924BAEC71cC3968614Cb2c58E155A35e6890"
 export const SwapMultiHopABI = multiHop.abi
 
 // TokenOne
-export const TokenOneAddress = "0xB468647B04bF657C9ee2de65252037d781eABafD"
+export const TokenOneAddress = "0x773330693cb7d5D233348E25809770A32483A940"
 export const TokenOneABI = token1.abi
 
 // TokenTwo
-export const TokenTwoAddress = "0x47c05BCCA7d57c87083EB4e586007530eE4539e9"
+export const TokenTwoAddress = "0x52173b6ac069619c206b9A0e75609fC92860AB2A"
 export const TokenTwoABI = token2.abi
 
 // IWETH

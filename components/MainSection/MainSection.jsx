@@ -18,7 +18,7 @@ const MainSection = (accounts, tokenData) => {
   const [tokenSwap, setTokenSwap] = useState({ name: "" })
 
   return (
-    <div className="w-[90%] h-screen mx-auto flex flex-col justify-center items-center pb-10 ">
+    <div className="w-[90%] h-screen mx-auto flex flex-col justify-center items-center pt-16 ">
       <div className=" bg-[#111111]/90 border-[1px] border-white/20 w-[35rem] p-4 rounded-xl">
         <div className="flex justify-between items-center">
           <p className="text-xl text-semibold tracking-widest">Swap</p>
