@@ -85,12 +85,19 @@ export const SwapTokenContextProvider = ({ children }) => {
 
         //console.log(tokenData)
 
-        // DAI Contract
+        // Set WETH user balance
         const weth = await connectIWETH()
         const wethBal = await weth.balanceOf(userAccount)
         const wethBalance = BigNumber.from(wethBal).toString()
         const convertWethBalance = ethers.utils.formatEther(wethBalance)
-        //console.log(convertWethBalance)
+        setWeth9(convertWethBalance)
+
+        // Set DAI user balance
+        const dai = await connectDAI()
+        const daiBal = await dai.balanceOf(userAccount)
+        const daiBalance = BigNumber.from(daiBal).toString()
+        const convertdaiBalance = ethers.utils.formatEther(daiBalance)
+        setDai(convertdaiBalance)
       })
     } catch (error) {
       console.log(error)
