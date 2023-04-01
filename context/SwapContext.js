@@ -71,7 +71,7 @@ export const SwapTokenContextProvider = ({ children }) => {
         const tokens = BigNumber.from(userBalance).toString()
         const tokensBalance = ethers.utils.formatEther(tokens)
 
-        console.log(`Token  balance ${tokensBalance} `)
+        //console.log(`Token  balance ${tokensBalance} `)
 
         // Getting tokens name and symbol
         const name = await contract.name()
@@ -83,7 +83,14 @@ export const SwapTokenContextProvider = ({ children }) => {
           balance: tokensBalance,
         })
 
-        console.log(tokenData)
+        //console.log(tokenData)
+
+        // DAI Contract
+        const weth = await connectIWETH()
+        const wethBal = await weth.balanceOf(userAccount)
+        const wethBalance = BigNumber.from(wethBal).toString()
+        const convertWethBalance = ethers.utils.formatEther(wethBalance)
+        //console.log(convertWethBalance)
       })
     } catch (error) {
       console.log(error)
