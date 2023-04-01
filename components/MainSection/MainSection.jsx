@@ -87,7 +87,7 @@ const MainSection = (accounts, tokenData) => {
       )}
 
       <div className="mt-20 flex justify-between gap-4 items-center text-lg tracking-wider text-pink-600 ">
-        <p>Currently being built</p>
+        <p>Currently being built :</p>
         <Link
           href="https://github.com/igopib/decentralized-exchange"
           target="_blank"
