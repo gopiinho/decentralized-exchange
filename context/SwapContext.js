@@ -31,9 +31,8 @@ export const SwapTokenContextProvider = ({ children }) => {
   const [tokenData, setTokenData] = useState([])
 
   const addToken = [
-    "0xB468647B04bF657C9ee2de65252037d781eABafD", // IWETH
-    "0x773330693cb7d5D233348E25809770A32483A940", // Token 1
-    "0x52173b6ac069619c206b9A0e75609fC92860AB2A", // Token 2
+    "0x9e7F7d0E8b8F38e3CF2b3F7dd362ba2e9E82baa4", // Token 1
+    "0x0724F18B2aA7D6413D3fDcF6c0c27458a8170Dd9", // Token 2
   ]
 
   // Fetching user token data
@@ -69,10 +68,22 @@ export const SwapTokenContextProvider = ({ children }) => {
         const userBalance = await contract.balanceOf(userAccount)
 
         // Getting Token 1 balance
-        const tokenOne = BigNumber.from(userBalance).toString()
-        const tokenOneBalance = ethers.utils.formatEther(tokenOne)
+        const tokens = BigNumber.from(userBalance).toString()
+        const tokensBalance = ethers.utils.formatEther(tokens)
 
-        console.log(`Token one balance ${tokenOneBalance} `)
+        console.log(`Token  balance ${tokensBalance} `)
+
+        // Getting tokens name and symbol
+        const name = await contract.name()
+        const symbol = await contract.symbol()
+
+        tokenData.push({
+          name: name,
+          symbol: symbol,
+          balance: tokensBalance,
+        })
+
+        console.log(tokenData)
       })
     } catch (error) {
       console.log(error)
