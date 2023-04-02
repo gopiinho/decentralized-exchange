@@ -10,10 +10,16 @@ import { Model, TokenList } from "../index"
 import images from "../../assets"
 import { connectWallet } from "../../utils/appFeatures"
 
+// Swap Context Import
+import { SwapTokenContext } from "../../context/SwapContext"
+
 const Navbar = () => {
+  const { account, weth, dai, connectedNetwork, ether } =
+    useContext(SwapTokenContext)
+
+  // States
   const [openModel, setOpenModel] = useState(false)
   const [openTokenBox, setOpenTokenBox] = useState(false)
-  const [account, setAccount] = useState(false)
 
   return (
     <div className=" fixed w-full z-[100] bg-[#27262C]">
