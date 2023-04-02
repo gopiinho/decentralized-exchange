@@ -58,13 +58,13 @@ const MainSection = (accounts, tokenData) => {
           </div>
         </div>
         {accounts ? (
-          <button className="bg-zinc-700 hover:bg-zinc-600 text-pink-600 text-2xl py-5 px-8 my-4 w-full cursor-pointer transform duration-200 font-semibold tracking-wider rounded-xl ease-in">
+          <button className="bg-zinc-700 shadow-black shadow-md hover:bg-zinc-600 text-pink-600 text-2xl py-5 px-8 my-4 w-full cursor-pointer transform duration-200 font-semibold tracking-wider rounded-xl ease-in">
             Connect Wallet
           </button>
         ) : (
           <button
             onClick={() => {}}
-            className="bg-zinc-700 hover:bg-zinc-600 text-pink-600 text-2xl py-5 px-8 my-4 w-full cursor-pointer transform duration-200 font-semibold tracking-wider rounded-xl ease-in"
+            className="bg-zinc-700 shadow-black shadow-lg hover:bg-zinc-600 text-pink-600 text-2xl py-5 px-8 my-4 w-full cursor-pointer transform duration-200 font-semibold tracking-wider rounded-xl ease-in"
           >
             Swap
           </button>
