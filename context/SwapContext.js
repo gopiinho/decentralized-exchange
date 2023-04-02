@@ -60,6 +60,10 @@ export const SwapTokenContextProvider = ({ children }) => {
       const ethValue = ethers.utils.formatEther(convertedBalance)
       setEther(ethValue)
 
+      // Get name of the network
+      const network = await provider.getNetwork()
+      setConnectedNetwork(network.name)
+
       // *** Getting All token balance ***
       addToken.map(async (el, i) => {
         // Getting contract instances
@@ -108,6 +112,10 @@ export const SwapTokenContextProvider = ({ children }) => {
     fetchData()
   }, [])
   return (
-    <SwapTokenContext.Provider value={{}}>{children}</SwapTokenContext.Provider>
+    <SwapTokenContext.Provider
+      value={{ account, weth, dai, connectedNetwork, ether }}
+    >
+      {children}
+    </SwapTokenContext.Provider>
   )
 }
