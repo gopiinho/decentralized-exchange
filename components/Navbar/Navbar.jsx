@@ -14,7 +14,7 @@ import { connectWallet } from "../../utils/appFeatures"
 import { SwapTokenContext } from "../../context/SwapContext"
 
 const Navbar = () => {
-  const { account, weth, dai, connectedNetwork, ether } =
+  const { account, weth, dai, connectedNetwork, ether, connectWallet } =
     useContext(SwapTokenContext)
 
   // States
@@ -87,7 +87,10 @@ const Navbar = () => {
             )}
 
             {openModel && (
-              <Model setOpenModel={setOpenModel} connectWallet="Connect" />
+              <Model
+                setOpenModel={setOpenModel}
+                connectWallet={connectWallet}
+              />
             )}
           </div>
         </div>
