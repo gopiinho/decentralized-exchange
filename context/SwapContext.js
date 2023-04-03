@@ -113,7 +113,15 @@ export const SwapTokenContextProvider = ({ children }) => {
   }, [])
   return (
     <SwapTokenContext.Provider
-      value={{ account, weth, dai, connectedNetwork, ether, connectWallet }}
+      value={{
+        account,
+        weth,
+        dai,
+        connectedNetwork,
+        ether,
+        connectWallet,
+        tokenData,
+      }}
     >
       {children}
     </SwapTokenContext.Provider>

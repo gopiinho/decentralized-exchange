@@ -14,7 +14,7 @@ import { connectWallet } from "../../utils/appFeatures"
 import { SwapTokenContext } from "../../context/SwapContext"
 
 const Navbar = () => {
-  const { account, weth, dai, connectedNetwork, ether, connectWallet } =
+  const { account, connectedNetwork, connectWallet, tokenData } =
     useContext(SwapTokenContext)
 
   // States
@@ -98,7 +98,7 @@ const Navbar = () => {
 
       {/* TOKEN LIST COMPONENT */}
       {openTokenBox && (
-        <TokenList tokenDate="Date" setOpenTokenBox={setOpenTokenBox} />
+        <TokenList tokenData={tokenData} setOpenTokenBox={setOpenTokenBox} />
       )}
     </div>
   )
