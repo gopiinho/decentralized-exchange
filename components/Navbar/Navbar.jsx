@@ -64,7 +64,7 @@ const Navbar = () => {
         <div>
           <div className="flex justify-between items-center gap-8">
             <div className="flex justify-between items-center gap-2 px-3 py-2 hover:bg-white/10  rounded-lg transform duration-200 cursor-pointer">
-              <h2 className="mr-2 ">Network</h2>
+              <h2 className="mr-2 ">{connectedNetwork}</h2>
               <RiArrowDownSLine size={20} />
             </div>
 
