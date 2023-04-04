@@ -112,15 +112,24 @@ export const SwapTokenContextProvider = ({ children }) => {
     fetchData()
   }, [])
 
+  // Creating an instance of connection to SingleSwap contract
+
   const singleSwapToken = async () => {
     try {
       let singleSwapToken
       let weth
       let dai
+
+      singleSwapToken = await connectSingleSwapToken()
     } catch (error) {
       console.log(error)
     }
   }
+
+  useEffect(() => {
+    singleSwapToken()
+  }, [])
+
   return (
     <SwapTokenContext.Provider
       value={{
