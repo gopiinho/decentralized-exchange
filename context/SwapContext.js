@@ -7,7 +7,7 @@ import {
   connectWallet,
   connectToken1,
   connectToken2,
-  SingleSwapToken,
+  connectSingleSwapToken,
   connectSwapMultiHop,
   connectIWETH,
   connectDAI,

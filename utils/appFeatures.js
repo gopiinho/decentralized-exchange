@@ -106,7 +106,7 @@ export const connectToken2 = async () => {
 }
 
 // Connecting to SingleSwap Contract
-export const SingleSwapToken = async () => {
+export const connectSingleSwapToken = async () => {
   try {
     const web3modal = new Web3Modal()
     const connection = await web3modal.connect()
