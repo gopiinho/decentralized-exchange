@@ -111,6 +111,16 @@ export const SwapTokenContextProvider = ({ children }) => {
   useEffect(() => {
     fetchData()
   }, [])
+
+  const singleSwapToken = async () => {
+    try {
+      let singleSwapToken
+      let weth
+      let dai
+    } catch (error) {
+      console.log(error)
+    }
+  }
   return (
     <SwapTokenContext.Provider
       value={{
