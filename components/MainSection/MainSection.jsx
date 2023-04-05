@@ -7,7 +7,13 @@ import { Token, Search } from "../index"
 import { IoSettingsSharp } from "react-icons/io5"
 import { SlSocialGithub } from "react-icons/sl"
 
-const MainSection = (accounts, tokenData) => {
+// Swap Context Import
+import { SwapTokenContext } from "../../context/SwapContext"
+
+const MainSection = (tokenData) => {
+  // singleSwapToken imported from SwapToken context to use to execute swaps
+  const { account, connectWallet, singleSwapToken } =
+    useContext(SwapTokenContext)
   // States
   const [openSettings, setOpenSettings] = useState(false)
   const [openToken, setOpenToken] = useState(false)
@@ -57,16 +63,19 @@ const MainSection = (accounts, tokenData) => {
             </button>
           </div>
         </div>
-        {accounts ? (
-          <button className="bg-zinc-700 shadow-black shadow-md hover:bg-zinc-600 text-pink-600 text-2xl py-5 px-8 my-4 w-full cursor-pointer transform duration-200 font-semibold tracking-wider rounded-xl ease-in">
-            Connect Wallet
-          </button>
-        ) : (
+        {account ? (
           <button
-            onClick={() => {}}
+            onClick={() => singleSwapToken()}
             className="bg-zinc-700 shadow-black shadow-lg hover:bg-zinc-600 text-pink-600 text-2xl py-5 px-8 my-4 w-full cursor-pointer transform duration-200 font-semibold tracking-wider rounded-xl ease-in"
           >
             Swap
+          </button>
+        ) : (
+          <button
+            onClick={() => connectWallet()}
+            className="bg-zinc-700 shadow-black shadow-md hover:bg-zinc-600 text-pink-600 text-2xl py-5 px-8 my-4 w-full cursor-pointer transform duration-200 font-semibold tracking-wider rounded-xl ease-in"
+          >
+            Connect Wallet
           </button>
         )}
       </div>

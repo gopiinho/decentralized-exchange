@@ -124,14 +124,14 @@ export const SwapTokenContextProvider = ({ children }) => {
       weth = await connectIWETH()
       dai = await connectDAI()
 
-      const amountIn = 10n * 18n
+      const amountIn = 10n ** 18n
 
       await weth.deposit({ value: amountIn })
       await weth.approve(singleSwapToken.address, amountIn)
 
       // Performing the actual swap here
-      const transaction = await singleSwapToken.swapExactInputSingle(amountIn, {
-        gasLimit: 300000,
+      await singleSwapToken.swapExactInputSingle(amountIn, {
+        gasLimit: 600000,
       })
 
       const balance = await dai.balanceOf(account)
