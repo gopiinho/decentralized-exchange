@@ -131,7 +131,7 @@ export const SwapTokenContextProvider = ({ children }) => {
 
       // Performing the actual swap here
       await singleSwapToken.swapExactInputSingle(amountIn, {
-        gasLimit: 600000,
+        gasLimit: 300000,
       })
 
       const balance = await dai.balanceOf(account)
