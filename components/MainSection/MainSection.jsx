@@ -12,7 +12,7 @@ import { SwapTokenContext } from "../../context/SwapContext"
 
 const MainSection = (tokenData) => {
   // singleSwapToken imported from SwapToken context to use to execute swaps
-  const { account, connectWallet, singleSwapToken, weth, dai } =
+  const { account, connectWallet, singleSwapToken, ether, dai } =
     useContext(SwapTokenContext)
   // States
   const [openSettings, setOpenSettings] = useState(false)
@@ -47,7 +47,7 @@ const MainSection = (tokenData) => {
               className="bg-black/50 hover:bg-black/60 text-pink-500 hover:text-pink-600 px-12 border-white/40 border-[1px] cursor-pointer transform duration-200 ease-in rounded-xl text-xl "
             >
               {tokenOne.name || "ETH"}
-              <small>{weth.slice(0, 6)}</small>
+              <small>{ether.slice(0, 6)}</small>
             </button>
           </div>
         </div>
