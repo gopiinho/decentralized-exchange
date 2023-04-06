@@ -30,4 +30,10 @@ contract AddLiquidity is IERC721Receiver {
         address token0;
         address token1;
     }
+
+    // Mapping to keep track of liquidity deposits
+    mapping(uint => Deposit) deposits;
+
+    // TokenID variable
+    uint public tokenId;
 }
