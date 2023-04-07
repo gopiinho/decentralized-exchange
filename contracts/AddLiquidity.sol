@@ -49,7 +49,7 @@ contract AddLiquidity is IERC721Receiver {
     }
 
     // Function to create the actual deposit.
-        function _createDeposit(address owner, uint _tokenId) internal {
+    function _createDeposit(address owner, uint _tokenId) internal {
         (
             ,
             ,
@@ -73,4 +73,9 @@ contract AddLiquidity is IERC721Receiver {
             token1: token1
         });
 
+        console.log("Token Id", _tokenId);
+        console.log("Liquidity", liquidity);
+
+        tokenId = _tokenId;
+    }
 }
