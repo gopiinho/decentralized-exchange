@@ -20,7 +20,7 @@ contract AddLiquidity is IERC721Receiver {
     uint24 public constant poolFee = 100;
 
     INonfungiblePositionManager public nonfungiblePositionManager =
-        // Following hard coded address is a bad practise but will update this later. (Hardhat node wallet)
+        // Following hard coded address is a bad practise but will update this later. (Hardhat node wallet).
         INonfungiblePositionManager(0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266);
 
     /// @notice Represents the deposit of an NFT
@@ -31,9 +31,20 @@ contract AddLiquidity is IERC721Receiver {
         address token1;
     }
 
-    // Mapping to keep track of liquidity deposits
+    // Mapping to keep track of liquidity deposits.
     mapping(uint => Deposit) deposits;
 
-    // TokenID variable
+    // TokenID variable.
     uint public tokenId;
+
+    // Implementing `onERC721Received` so this contract can receive custody of ERC721 tokens.
+    function onERC721Received(
+        address operator,
+        address from,
+        uint256 tokenId,
+        bytes calldata data
+    ) external returns (bytes4) {
+        _createDeposit(operator, _tokenId);
+        return this.onERC721Received.selector;
+    }
 }
