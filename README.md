@@ -2,6 +2,12 @@
 
 Decentralized exchange based on Uniswap AMM model.
 
+How to set it up locally ?
+
+1. yarn hardhat node
+2. yarn hardhat run scripts/deploy.js --network localhost
+3. yarn dev
+
 ## Learning Takeaways
 
 #### Contract - SwapToken.sol
