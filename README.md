@@ -4,9 +4,11 @@ Decentralized exchange based on Uniswap AMM model.
 
 How to set it up locally ?
 
-1. yarn hardhat node
-2. yarn hardhat run scripts/deploy.js --network localhost
-3. yarn dev
+```
+yarn hardhat node
+yarn hardhat run scripts/deploy.js --network localhost
+yarn dev
+```
 
 ## Learning Takeaways
 
@@ -21,3 +23,7 @@ How to set it up locally ?
 1. The Uniswap multihop contract is a smart contract that enables users to trade between any two tokens listed on Uniswap, even if there isn't a direct trading pair between them. This is achieved by automatically routing the trade through one or more intermediate tokens, creating a chain of trades that effectively enables the user to trade between the two desired tokens.
 
 2. The multihop contract is designed to optimize the trade path and minimize the trading fees incurred by the user. It uses an algorithm to find the most efficient path between the two tokens, taking into account the current market prices and trading fees for each token. This helps to ensure that users get the best possible price for their trade, even if they are trading between tokens that don't have a direct trading pair.
+
+```
+
+```
