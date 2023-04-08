@@ -21,7 +21,7 @@ contract AddLiquidity is IERC721Receiver {
 
     INonfungiblePositionManager public nonfungiblePositionManager =
         // Following hard coded address is a bad practise but will update this later. (Hardhat node wallet).
-        INonfungiblePositionManager(0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266);
+        INonfungiblePositionManager(0xC36442b4a4522E871399CD717aBDD847Ab11FE88);
 
     /// @notice Represents the deposit of an NFT
     struct Deposit {
