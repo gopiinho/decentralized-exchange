@@ -78,4 +78,73 @@ contract AddLiquidity is IERC721Receiver {
 
         tokenId = _tokenId;
     }
+
+    function mintNewPosition()
+        external
+        returns (uint _tokenId, uint128 liquidity, uint amount0, uint amount1)
+    {
+        // For this example, we will provide equal amounts of liquidity in both assets.
+        // Providing liquidity in both assets means liquidity will be earning fees and is considered in-range.
+        uint amount0ToMint = 100 * 1e18;
+        uint amount1ToMint = 100 * 1e6;
+
+        // Approve the position manager
+        TransferHelper.safeApprove(
+            DAI,
+            address(nonfungiblePositionManager),
+            amount0ToMint
+        );
+        TransferHelper.safeApprove(
+            USDC,
+            address(nonfungiblePositionManager),
+            amount1ToMint
+        );
+
+        INonfungiblePositionManager.MintParams memory params = INonfungiblePositionManager
+            .MintParams({
+                token0: DAI,
+                token1: USDC,
+                fee: poolFee,
+                // By using TickMath.MIN_TICK and TickMath.MAX_TICK,
+                // we are providing liquidity across the whole range of the pool.
+                // Not recommended in production.
+                tickLower: TickMath.MIN_TICK,
+                tickUpper: TickMath.MAX_TICK,
+                amount0Desired: amount0ToMint,
+                amount1Desired: amount1ToMint,
+                amount0Min: 0,
+                amount1Min: 0,
+                recipient: address(this),
+                deadline: block.timestamp
+            });
+
+        // Note that the pool defined by DAI/USDC and fee tier 0.01% must
+        // already be created and initialized in order to mint
+        (_tokenId, liquidity, amount0, amount1) = nonfungiblePositionManager
+            .mint(params);
+
+        // Create a deposit
+        _createDeposit(msg.sender, _tokenId);
+
+        // Remove allowance and refund in both assets.
+        if (amount0 < amount0ToMint) {
+            TransferHelper.safeApprove(
+                DAI,
+                address(nonfungiblePositionManager),
+                0
+            );
+            uint refund0 = amount0ToMint - amount0;
+            TransferHelper.safeTransfer(DAI, msg.sender, refund0);
+        }
+
+        if (amount1 < amount1ToMint) {
+            TransferHelper.safeApprove(
+                USDC,
+                address(nonfungiblePositionManager),
+                0
+            );
+            uint refund1 = amount1ToMint - amount1;
+            TransferHelper.safeTransfer(USDC, msg.sender, refund1);
+        }
+    }
 }
