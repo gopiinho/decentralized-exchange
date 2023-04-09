@@ -64,8 +64,8 @@ contract AddLiquidity is IERC721Receiver {
             ,
 
         ) = nonfungiblePositionManager.positions(_tokenId);
-        // set the owner and data for position
-        // operator is msg.sender
+        // Set the owner and data for position.
+        // Operator is msg.sender.
         deposits[_tokenId] = Deposit({
             owner: owner,
             liquidity: liquidity,
@@ -88,7 +88,7 @@ contract AddLiquidity is IERC721Receiver {
         uint amount0ToMint = 100 * 1e18;
         uint amount1ToMint = 100 * 1e6;
 
-        // Approve the position manager
+        // Approve the position manager.
         TransferHelper.safeApprove(
             DAI,
             address(nonfungiblePositionManager),
@@ -105,8 +105,8 @@ contract AddLiquidity is IERC721Receiver {
                 token0: DAI,
                 token1: USDC,
                 fee: poolFee,
-                // By using TickMath.MIN_TICK and TickMath.MAX_TICK,
-                // we are providing liquidity across the whole range of the pool.
+                // By using TickMath.MIN_TICK and TickMath.MAX_TICK.
+                // Proving liquidity across the whole range of the pool.
                 // Not recommended in production.
                 tickLower: TickMath.MIN_TICK,
                 tickUpper: TickMath.MAX_TICK,
@@ -118,8 +118,8 @@ contract AddLiquidity is IERC721Receiver {
                 deadline: block.timestamp
             });
 
-        // Note that the pool defined by DAI/USDC and fee tier 0.01% must
-        // already be created and initialized in order to mint
+        // Note that the pool defined by DAI/USDC and fee tier 0.01% must.
+        // Already be created and initialized in order to mint.
         (_tokenId, liquidity, amount0, amount1) = nonfungiblePositionManager
             .mint(params);
 
@@ -146,5 +146,25 @@ contract AddLiquidity is IERC721Receiver {
             uint refund1 = amount1ToMint - amount1;
             TransferHelper.safeTransfer(USDC, msg.sender, refund1);
         }
+    }
+
+    function collectAllFees()
+        external
+        returns (uint256 amount0, uint256 amount1)
+    {
+        // set amount0Max and amount1Max to uint256.max to collect all fees
+        // alternatively can set recipient to msg.sender and avoid another transaction in `sendToOwner`
+        INonfungiblePositionManager.CollectParams
+            memory params = INonfungiblePositionManager.CollectParams({
+                tokenId: tokenId,
+                recipient: address(this),
+                amount0Max: type(uint128).max,
+                amount1Max: type(uint128).max
+            });
+
+        (amount0, amount1) = nonfungiblePositionManager.collect(params);
+
+        console.log("fee 0", amount0);
+        console.log("fee 1", amount1);
     }
 }
