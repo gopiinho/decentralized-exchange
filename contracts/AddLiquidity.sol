@@ -152,8 +152,8 @@ contract AddLiquidity is IERC721Receiver {
         external
         returns (uint256 amount0, uint256 amount1)
     {
-        // set amount0Max and amount1Max to uint256.max to collect all fees
-        // alternatively can set recipient to msg.sender and avoid another transaction in `sendToOwner`
+        // Set amount0Max and amount1Max to uint256.max to collect all fees
+        // Alternatively can set recipient to msg.sender and avoid another transaction in `sendToOwner`
         INonfungiblePositionManager.CollectParams
             memory params = INonfungiblePositionManager.CollectParams({
                 tokenId: tokenId,
@@ -166,5 +166,52 @@ contract AddLiquidity is IERC721Receiver {
 
         console.log("fee 0", amount0);
         console.log("fee 1", amount1);
+    }
+
+    function increaseLiquidityCurrentRange(
+        uint256 amountAdd0,
+        uint256 amountAdd1
+    ) external returns (uint128 liquidity, uint256 amount0, uint256 amount1) {
+        TransferHelper.safeTransferFrom(
+            DAI,
+            msg.sender,
+            address(this),
+            amountAdd0
+        );
+        TransferHelper.safeTransferFrom(
+            USDC,
+            msg.sender,
+            address(this),
+            amountAdd1
+        );
+
+        TransferHelper.safeApprove(
+            DAI,
+            address(nonfungiblePositionManager),
+            amountAdd0
+        );
+        TransferHelper.safeApprove(
+            USDC,
+            address(nonfungiblePositionManager),
+            amountAdd1
+        );
+
+        INonfungiblePositionManager.IncreaseLiquidityParams
+            memory params = INonfungiblePositionManager
+                .IncreaseLiquidityParams({
+                    tokenId: tokenId,
+                    amount0Desired: amountAdd0,
+                    amount1Desired: amountAdd1,
+                    amount0Min: 0,
+                    amount1Min: 0,
+                    deadline: block.timestamp
+                });
+
+        (liquidity, amount0, amount1) = nonfungiblePositionManager
+            .increaseLiquidity(params);
+
+        console.log("liquidity", liquidity);
+        console.log("amount 0", amount0);
+        console.log("amount 1", amount1);
     }
 }
