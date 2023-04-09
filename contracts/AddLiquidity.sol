@@ -214,4 +214,25 @@ contract AddLiquidity is IERC721Receiver {
         console.log("amount 0", amount0);
         console.log("amount 1", amount1);
     }
+
+    function decreaseLiquidity(
+        uint128 liquidity
+    ) external returns (uint amount0, uint amount1) {
+        INonfungiblePositionManager.DecreaseLiquidityParams
+            memory params = INonfungiblePositionManager
+                .DecreaseLiquidityParams({
+                    tokenId: tokenId,
+                    liquidity: liquidity,
+                    amount0Min: 0,
+                    amount1Min: 0,
+                    deadline: block.timestamp
+                });
+
+        (amount0, amount1) = nonfungiblePositionManager.decreaseLiquidity(
+            params
+        );
+
+        console.log("amount 0", amount0);
+        console.log("amount 1", amount1);
+    }
 }
